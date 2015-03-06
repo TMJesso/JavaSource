@@ -18,7 +18,7 @@
    limitations under the License.
 
  */
- 
+
 package myStartPractice;
 import java.sql.Connection;
 import java.sql.DriverManager;
