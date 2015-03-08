@@ -160,7 +160,7 @@ public class Cars {
 	 * @return output
 	 */
 	public String toString() {
-		String output = "\nCars's Information\nMake, Model, Year, Price | Owner" +
+		String output = "\nCar's Information\nMake, Model, Year, Price | Owner" +
 						"\n------------------------------------------\n" + this.make +
 						", "  + this.model +
 						", " + this.year + 
