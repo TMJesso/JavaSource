@@ -12,8 +12,8 @@ public class UsePerson {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		//NewCountry usa = new NewCountry("United States of American", "North America", 320000000);
-		//NewCountry jordon = new NewCountry("Jordan", "Asia", 7000000);
+		NewCountry usa = new NewCountry("United States of American", "North America", 320000000);
+		NewCountry jordon = new NewCountry("Jordan", "Asia", 7000000);
 		
 		System.out.print("Enter a name for the first person: ");
 		String name = input.nextLine();

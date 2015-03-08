@@ -10,8 +10,9 @@
  * 
  * 
  */
-package carOwner;
+package newCarOwner;
 public class Owner {
+	// Owner fields
 	private String ownerName;
 	private String ownerAddress;
 	
@@ -68,9 +69,9 @@ public class Owner {
 	
 	/** display the owner information */
 	public String toString() {
-		String owner = "\nOwner Name and Address\n------------------------------------------\n" + 
+		String owner = " | " + 
 				this.ownerName + 
-				" " + this.ownerAddress + 
+				"; " + this.ownerAddress + 
 				"\n==========================================";
 		
 		return owner;
