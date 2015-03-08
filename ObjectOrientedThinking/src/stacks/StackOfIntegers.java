@@ -7,7 +7,7 @@ public class StackOfIntegers {
 	
 	/** construct a stack with the default capacity 16 */
 	public StackOfIntegers() {
-		this.elements = new int[(DEFAULT_CAPACITY)];
+		this (DEFAULT_CAPACITY);
 	}
 	
 	/** construct a stack with the specified maximum capacity */
@@ -27,8 +27,21 @@ public class StackOfIntegers {
 	
 	/** return and remove the top element from the stack */
 	public int pop() {
-		return elements[size - 1];
+		return elements[--size];
 	}
 	
+	/** return the top element from the stack */
+	public int peek() {
+		return elements[size -1];
+	}
 	
+	/** test whether the stack is empty */
+	public boolean empty() {
+		return size == 0;
+	}
+	
+	/** return the number of elements in the stack */
+	public int getsize() {
+		return size;
+	}
 }
