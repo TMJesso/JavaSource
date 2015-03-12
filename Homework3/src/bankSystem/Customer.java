@@ -5,7 +5,12 @@ public abstract class Customer {
 	protected String address;
 	protected String phone;
 	
-	// account info
-	Account accountNumber;
+	
+	protected Customer(String name, String address, String phone) {
+		this.name = name;
+		this.address = address;
+		this.phone = phone;
+		
+	}
 	
 }

@@ -9,11 +9,13 @@ public class Savings extends Account {
 	 * 
 	 * @param account
 	 * @param balance
-	 * @param branch
 	 * @param rate
+	 * @param branch
+	 * @param customer
+	 * 
 	 */
-	protected Savings(String account, Double balance, Bank branch, double rate) {
-		super(account, balance, branch);
+	protected Savings(String account, Double balance, double rate, Branch branch, Customer customer) {
+		super(account, balance, branch, customer);
 		this.interestRate = rate;
 	}
 
@@ -22,9 +24,11 @@ public class Savings extends Account {
 	 * @param amount
 	 * return balance
 	 */
-	protected double makeDeposit(double amount) {
+	protected String makeDeposit(double amount) {
 		this.balance = this.balance + amount;
-		return this.balance;
+		String message = "Thank you for using " + this.branch;
+		message += "\nYour new balance is: $" + this.balance;
+		return message;
 	}
 
 	/** make withdrawal
@@ -32,9 +36,18 @@ public class Savings extends Account {
 	 * @param amount
 	 * return balance
 	 */
-	protected double makeWithdrawal(double amount) {
-		this.balance = this.balance - amount;
-		return this.balance;
+	protected String makeWithdrawal(double amount) {
+		if ((this.balance - amount) >= this.balance ) {
+			this.balance = this.balance - amount;
+		} else {
+			String message = "Thank you for using " + this.branch;
+			message += "\nNot enough funds in Savings account for your request";
+			message += "Your current balance is: $" + this.balance;
+			return message;
+		}
+		String message = "Thank you for using " + this.branch;
+		message += "Your new balance is: $" + this.balance;
+		return message;
 	}
 	
 	/** calculate compound interest for one month
@@ -47,10 +60,23 @@ public class Savings extends Account {
 		// I = P x (1 + r/n)^(n x t)
 		double rate = this.interestRate / 100;
 		double years = 1;
-		double numTimes = 12.0;
+		double numTimes = 1/12.0;
 		double interest = this.balance * Math.pow(1 + (rate / numTimes), (numTimes * years));
-		
-		
 		return interest;
+	}
+	
+
+	public String toString() {
+		String message = "";
+		message += "Savings Account\n";
+		message += "-------------------------------\n";
+		message += "Customer: " + this.customer;
+		message += "\nBranch: " + this.branch;
+		message += "\nAccount #: " + this.accountNumber;
+		message += "\nBalance: $" + this.balance;
+		message += "\nAnnual interest rate: " + this.interestRate + "%";
+		message += "\nOpened date: " + this.dateOpened;
+		message += "\n=========================================================\n\n";
+		return message;
 	}
 }

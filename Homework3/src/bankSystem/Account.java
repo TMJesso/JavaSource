@@ -5,19 +5,22 @@ public abstract class Account {
 	protected double balance;
 	protected java.util.Date dateOpened;
 	
-	// branch name
-	Bank branch;
+	// customer information
+	Customer customer;
+	// branch information
+	Branch branch;
 	
-	protected Account(String account, Double balance, Bank branch) {
+	protected Account(String account, Double balance, Branch branch, Customer customer) {
 		this.accountNumber = account;
 		this.balance = balance;
 		this.dateOpened = new java.util.Date();
 		this.branch = branch;
+		this.customer = customer;
 	}
 	
-	protected abstract double makeDeposit(double amount);
+	protected abstract String makeDeposit(double amount);
 	
-	protected abstract double makeWithdrawal(double amount);
+	protected abstract String makeWithdrawal(double amount);
 	
 	
 }
