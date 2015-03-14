@@ -1,3 +1,12 @@
+/* 
+ * IUK
+ * Professor: Dr. Awny Alnusair
+ * Group: Theral Jessop, Jeremiah McKinney, Ian Holtson
+ * Course: INFO 211
+ * Date: March 12, 2015
+ * Homework 3:
+ * 
+ */
 package bankSystem;
 
 public abstract class Customer {
@@ -12,5 +21,10 @@ public abstract class Customer {
 		this.phone = phone;
 		
 	}
+	
+//	public String toString() {
+//		String message = this.name + ", " + this.address + " " + this.phone + " | ";
+//		return message;
+//	}
 	
 }

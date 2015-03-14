@@ -3,31 +3,39 @@ package myMediaLab;
 import java.util.ArrayList;
 
 public final class MediaList extends PlayableItem {
-	ArrayList<Media> myMediaPlayList;
-	Media mediaItem;
+	ArrayList<MediaList> myMediaPlayList = new ArrayList<>();
+	Object obj;
 	protected MediaList() {
 	}
 
-	protected MediaList(String title, Media[] mediaItem) {
-		super(title);
-		myMediaPlayList = new ArrayList<Media>();
-		for (int x = 0; x < mediaItem.length; x++) {
-			addMediaPlayList(mediaItem[x]);
-		}
+	protected MediaList(String myMediaTitle, Object obj) {
+		super(myMediaTitle);
+		this.obj = obj;
+
 	}
 	
 	public void play() {
-		for (Media e: myMediaPlayList) {
-			//System.out.println(this.title);
-			e.play();
+		boolean playTitle = true;
+		String currentTitle = "";
+		for (MediaList e: myMediaPlayList) {
+			if (currentTitle != e.title) {
+				playTitle = true;
+				}
+			if (playTitle) {
+				currentTitle = e.title;
+				System.out.println("\n" + e.title + "\n-------------------------------------");
+			}
+			System.out.println(e.obj);
+			playTitle = false;
 		}
-	}	
-	public void addMediaPlayList(Media mediaItem) {
-		myMediaPlayList.add(mediaItem);
 	}
 	
-	protected boolean removeFromPlayList(Media mediaItem) {
-		return myMediaPlayList.remove(mediaItem);
+	protected void addMediaPlayList(String title, Object obj) {
+		myMediaPlayList.add(new MediaList(title, obj));
+	}
+	
+	protected boolean removeFromPlayList(Object obj) {
+		return myMediaPlayList.remove(obj);
 	}
 	
 }

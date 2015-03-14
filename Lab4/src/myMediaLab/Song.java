@@ -11,11 +11,10 @@ public final class Song extends Media {
 
 	@Override
 	public void play() {
-		System.out.print(this.title + "\n");
+		System.out.print(this.title);
 	}
 
-//	public String toString() {
-//		return title;
-//	}
-	
+	public String toString() {
+		return this.title;
+	}
 }
