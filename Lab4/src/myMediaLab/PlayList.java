@@ -5,11 +5,10 @@ import java.util.ArrayList;
 public final class PlayList extends PlayableItem {
 	ArrayList<PlayList> myPlayList = new ArrayList<>();
 	Song songs;
-
-	protected PlayList() {
+	public PlayList() {
 	}
 	
-	protected PlayList(String title, Song songs) {
+	public PlayList(String title, Song songs) {
 		super(title);
 		this.songs = songs;
 	}
@@ -25,16 +24,12 @@ public final class PlayList extends PlayableItem {
 		}
 	}
 	
-	protected void addToPlayList(String title, Song songs) {
+	public void addToPlayList(String title, Song songs) {
 		myPlayList.add(new PlayList(title, songs));
 	}
 	
-	protected boolean removeFromPlayList(Song songs) {
-		int index = myPlayList.indexOf(this.songs);
-		if (index == -1) {
-			return false;
-		}
-		return (myPlayList.remove(index) != null);
+	public void removeFromPlayList(Song title) {
+		myPlayList.remove(title);
 	}
 	
 

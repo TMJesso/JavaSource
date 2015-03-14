@@ -10,11 +10,11 @@ public abstract class PlayableItem {
 		this.title = title;
 	}
 	
-	protected String getTitle() {
+	public String getTitle() {
 		return this.title;
 	}
 	
-	protected void setTitle(String title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 	
