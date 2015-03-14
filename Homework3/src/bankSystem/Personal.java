@@ -1,12 +1,3 @@
-/* 
- * IUK
- * Professor: Dr. Awny Alnusair
- * Group: Theral Jessop, Jeremiah McKinney, Ian Holtson
- * Course: INFO 211
- * Date: March 12, 2015
- * Homework 3:
- * 
- */
 package bankSystem;
 
 public class Personal extends Customer {
@@ -20,8 +11,7 @@ public class Personal extends Customer {
 	}
 	
 	public String toString(){
-		String message = "Name | address | phone\n\t  " + this.name + " | " + this.address + " | " + this.phone + "\n\n";
-		message += "\t  Home Phone: " + this.homePhone + " | Work phone: " + this.workPhone;
+		String message = " Home Phone: " + this.homePhone + " Work phone: " + this.workPhone;
 		return message;
 	}
 

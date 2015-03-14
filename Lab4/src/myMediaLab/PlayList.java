@@ -3,38 +3,33 @@ package myMediaLab;
 import java.util.ArrayList;
 
 public final class PlayList extends PlayableItem {
-	ArrayList<PlayList> myPlayList = new ArrayList<>();
-	Song songs;
+	ArrayList<Media> myPlayList;
+	Song song;
 
-	protected PlayList() {
-	}
+//	protected PlayList() {
+//	}
 	
-	protected PlayList(String title, Song songs) {
+	protected PlayList(String title, Song[] song) {
 		super(title);
-		this.songs = songs;
+		myPlayList = new ArrayList<Media>();
+		for (int x = 0; x < song.length; x++) {
+			addToPlayList(song[x]);
+		}
 	}
 
 	public void play() {
-		int counter = 0;
-		for (PlayList e: myPlayList) {
-			if (counter < 1) {
-				System.out.println("\n" + e.title + "\n-------------------------------------");
-			}
-			System.out.println(e.songs);
-			counter++;
+		for (Media e: myPlayList) {
+//			System.out.println(this.title);
+			e.play();
 		}
 	}
 	
-	protected void addToPlayList(String title, Song songs) {
-		myPlayList.add(new PlayList(title, songs));
+	protected void addToPlayList(Song song) {
+		myPlayList.add(song);
 	}
 	
-	protected boolean removeFromPlayList(Song songs) {
-		int index = myPlayList.indexOf(this.songs);
-		if (index == -1) {
-			return false;
-		}
-		return (myPlayList.remove(index) != null);
+	protected boolean removeFromPlayList(Song song) {
+		return myPlayList.remove(song);
 	}
 	
 
