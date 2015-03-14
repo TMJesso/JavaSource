@@ -3,20 +3,21 @@ package myMediaLab;
 public abstract class Media extends PlayableItem {
 	protected String linkToFile;
 	
-	public Media () {
+	protected Media () {
 		this.title = "";
 		this.linkToFile = "";
 	}
-		public Media(String title, String linkToFile) {
-		super(title);
-		this.linkToFile = linkToFile;
+	
+	protected Media(String title, String linkToFile) {
+	super(title);
+	this.linkToFile = linkToFile;
 	}
 	
-	public String getLinkToFile() {
+	protected String getLinkToFile() {
 		return this.linkToFile;
 	}
 	
-	public void setLinkToFile(String linkToFile) {
+	protected void setLinkToFile(String linkToFile) {
 		this.linkToFile = linkToFile;
 	}
 	

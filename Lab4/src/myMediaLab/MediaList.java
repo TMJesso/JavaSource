@@ -4,51 +4,38 @@ import java.util.ArrayList;
 
 public final class MediaList extends PlayableItem {
 	ArrayList<MediaList> myMediaPlayList = new ArrayList<>();
-	Movie movies;
-	Song songs ;
-	public MediaList() {
+	Object obj;
+	protected MediaList() {
 	}
 
-	public MediaList(String myMediaTitle, Movie movies) {
+	protected MediaList(String myMediaTitle, Object obj) {
 		super(myMediaTitle);
-		this.movies = movies;
+		this.obj = obj;
 
 	}
 	
-	public MediaList(String myMediaTitle, Song songs) {
-		super(myMediaTitle);
-		this.songs = songs;
-	}
-
 	public void play() {
-		//int counter = 0;
 		boolean playTitle = true;
 		String currentTitle = "";
 		for (MediaList e: myMediaPlayList) {
 			if (currentTitle != e.title) {
 				playTitle = true;
-				//counter=0;
-			}
+				}
 			if (playTitle) {
 				currentTitle = e.title;
 				System.out.println("\n" + e.title + "\n-------------------------------------");
 			}
-			System.out.println(e.songs == null ? e.movies : e.songs );
-			//counter++;
+			System.out.println(e.obj);
 			playTitle = false;
 		}
 	}
 	
-	public void addMoviePlayList(String title, Movie movies) {
-		myMediaPlayList.add(new MediaList(title, movies));
+	protected void addMediaPlayList(String title, Object obj) {
+		myMediaPlayList.add(new MediaList(title, obj));
 	}
 	
-	public void addSongPlayList(String title, Song songs) {
-		myMediaPlayList.add(new MediaList(title, songs));
-	}
-	
-	public void removeFromPlayList(String title) {
-		myMediaPlayList.remove(title);
+	protected boolean removeFromPlayList(Object obj) {
+		return myMediaPlayList.remove(obj);
 	}
 	
 }

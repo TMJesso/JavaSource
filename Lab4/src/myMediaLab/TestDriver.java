@@ -17,22 +17,34 @@ public class TestDriver {
 		myMovies[3] = new Movie("Call of the Wild - Movie", "D:\\Data\\Movies\\");
 		myMovies[4] = new Movie("Tale of Two Cities - Movie", "D:\\Data\\Movies\\");
 		
-		PlayList myPlayList = new PlayList();
-		MediaList myMediaList = new MediaList();
+		PlayList playList = new PlayList();
+		MediaList mediaList = new MediaList();
 		for (int x = 0; x < mySongs.length; x++) {
-			myPlayList.addToPlayList("Favorite Songs", mySongs[x]);
-			myMediaList.addMoviePlayList("Favorite Movies and Songs", myMovies[x]);
-			myMediaList.addSongPlayList("Favorite Movies and Songs", mySongs[x]);
+			playList.addToPlayList("Favorite Songs", mySongs[x]);
+			mediaList.addMediaPlayList("Favorite Movies and Songs", myMovies[x]);
+			mediaList.addMediaPlayList("Favorite Movies and Songs", mySongs[x]);
 		}
 	
 		for (int x = 0; x < myMovies.length; x++) {
-			myPlayList.addToPlayList("Favorite Songs", mySongs[x]);
-			myMediaList.addSongPlayList("Other Favorite Movies and Songs", mySongs[x]);
-			myMediaList.addMoviePlayList("Other Favorite Movies and Songs", myMovies[x]);
+			playList.addToPlayList("Favorite Songs", mySongs[x]);
+			mediaList.addMediaPlayList("Other Favorite Movies and Songs", mySongs[x]);
+			mediaList.addMediaPlayList("Other Favorite Movies and Songs", myMovies[x]);
 		}
-		myPlayList.play();
-		myMediaList.play();
+		playList.play();
+		mediaList.play();
 		
+		System.out.println(playList.removeFromPlayList(mySongs[0]) ? "Removed" : "Not Removed");
+		System.out.println(playList.removeFromPlayList(mySongs[0]) ? "Removed" : "Not Removed");
+		System.out.println(playList.removeFromPlayList(mySongs[0]) ? "Removed" : "Not Removed");
+		System.out.println(playList.removeFromPlayList(mySongs[0]) ? "Removed" : "Not Removed");
+//		System.out.println(mediaList.removeFromPlayList(myMovies[2]) ? "Removed" : "Not Removed");
+//		System.out.println(mediaList.removeFromPlayList(myMovies[2]) ? "Removed" : "Not Removed");
+//		System.out.println(mediaList.removeFromPlayList(myMovies[2]) ? "Removed" : "Not Removed");
+//		System.out.println(mediaList.removeFromPlayList(myMovies[2]) ? "Removed" : "Not Removed");
+	
+		playList.play();
+		mediaList.play();
+
 	}
 
 }

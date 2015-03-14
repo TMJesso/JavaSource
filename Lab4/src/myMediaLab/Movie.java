@@ -2,16 +2,16 @@ package myMediaLab;
 
 public final class Movie extends Media {
 
-	public Movie() {
+	protected Movie() {
 	}
 
-	public Movie(String title, String linkToFile) {
+	protected Movie(String title, String linkToFile) {
 		super(title, linkToFile);
 	}
 
 	@Override
 	public void play() {
-	
+		System.out.println(this.title);
 	}
 	
 	public String toString() {
