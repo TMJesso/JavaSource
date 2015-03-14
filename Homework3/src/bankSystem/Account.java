@@ -1,12 +1,3 @@
-/* 
- * IUK
- * Professor: Dr. Awny Alnusair
- * Group: Theral Jessop, Jeremiah McKinney, Ian Holtson
- * Course: INFO 211
- * Date: March 12, 2015
- * Homework 3:
- * 
- */
 package bankSystem;
 
 public abstract class Account {

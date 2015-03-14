@@ -11,12 +11,12 @@ public final class Movie extends Media {
 
 	@Override
 	public void play() {
-		System.out.println(this.title);
+		System.out.print(this.title + "\n");
 	}
 	
-	public String toString() {
-		return this.title;
-	}
+//	public String toString() {
+		//return title;
+//	}
 
 
 }
