@@ -11,7 +11,7 @@ public final class Movie extends Media {
 
 	@Override
 	public void play() {
-		System.out.print(this.title + "\n");
+		System.out.print(this.title + " (Movie)\n");
 	}
 	
 //	public String toString() {

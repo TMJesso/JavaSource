@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public final class MediaList extends PlayableItem {
 	ArrayList<Media> myMediaPlayList;
-	Media mediaItem;
 	protected MediaList() {
 	}
 

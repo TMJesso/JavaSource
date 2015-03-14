@@ -11,7 +11,7 @@ public final class Song extends Media {
 
 	@Override
 	public void play() {
-		System.out.print(this.title + "\n");
+		System.out.print(this.title + " (Song)\n");
 	}
 
 //	public String toString() {
