@@ -42,7 +42,7 @@ public class Bank {
 		 */
 		ArrayList<Account> account = new ArrayList<Account>(); 
 		
-		//Step 3 - requirements
+		// Task 3 - requirements
 		
 		// (a)
 		if (debug)

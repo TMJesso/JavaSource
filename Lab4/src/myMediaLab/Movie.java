@@ -2,10 +2,10 @@ package myMediaLab;
 
 public final class Movie extends Media {
 
-	protected Movie() {
+	public Movie() {
 	}
 
-	protected Movie(String title, String linkToFile) {
+	public Movie(String title, String linkToFile) {
 		super(title, linkToFile);
 	}
 

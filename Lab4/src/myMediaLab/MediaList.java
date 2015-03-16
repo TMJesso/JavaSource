@@ -4,15 +4,12 @@ import java.util.ArrayList;
 
 public final class MediaList extends PlayableItem {
 	ArrayList<Media> myMediaPlayList;
-	protected MediaList() {
+	public MediaList() {
 	}
 
-	protected MediaList(String title, Media[] mediaItem) {
-		super(title);
+	public MediaList(String title) {
+		this.title = title;
 		myMediaPlayList = new ArrayList<Media>();
-		for (int x = 0; x < mediaItem.length; x++) {
-			addMediaPlayList(mediaItem[x]);
-		}
 	}
 	
 	public void play() {
@@ -25,7 +22,7 @@ public final class MediaList extends PlayableItem {
 		myMediaPlayList.add(mediaItem);
 	}
 	
-	protected boolean removeFromPlayList(Media mediaItem) {
+	public boolean removeFromPlayList(Media mediaItem) {
 		return myMediaPlayList.remove(mediaItem);
 	}
 	

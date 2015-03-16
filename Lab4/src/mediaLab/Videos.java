@@ -9,9 +9,7 @@ public final class Videos extends Media {
 		
 	}
 	public void play() {
-		
-			System.out.println("The video vcurrently playing is " + this.title);
-				
+		System.out.println("The video vcurrently playing is " + this.title);
 	}
 
 }

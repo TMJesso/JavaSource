@@ -3,18 +3,18 @@ package myMediaLab;
 public abstract class PlayableItem {
 	protected String title;
 	
-	protected PlayableItem() {
+	public PlayableItem() {
 		this.title = "";
 	}
-	protected PlayableItem(String title) {
+	public PlayableItem(String title) {
 		this.title = title;
 	}
 	
-	protected String getTitle() {
+	public String getTitle() {
 		return this.title;
 	}
 	
-	protected void setTitle(String title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 	

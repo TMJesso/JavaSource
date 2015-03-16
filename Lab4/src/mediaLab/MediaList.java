@@ -10,7 +10,7 @@ public class MediaList extends PlayableItem{
 	public void play(){
 		for(Media x: listOfItems)
 		{
-			System.out.println(x.getTitle());
+			x.play();
 		}
 	}
 	protected void addItem(Media item){
