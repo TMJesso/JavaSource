@@ -4,38 +4,47 @@ import java.io.FileNotFoundException;
 
 public class PayrollMenu {
 
+	/** from wage bracket CSV to Dat <br><br>
+	 * convert the comma delimited file from IRS tax withholding sheets<br>
+	 * 
+	 * @author Theral Jessop<br>
+	 * Copyright (c) 2015 Theral Jessop All Rights Reserved<br>
+	 * 
+	 * @throws FileNotFoundException
+	 */
 	public void fromWageBracketCSVtoDat() throws FileNotFoundException {
 		payroll.PayrollLib gt = new payroll.PayrollLib();
-		String[][] file = new String[10][2];
-		file[0][0] = "f:\\Programming\\Payroll\\singleWeekly.csv";
-		file[0][1] = "f:\\Programming\\Payroll\\data\\weeklySingleWageBracket.dat";
+		String[][] file = new String[9][2];
+		file[0][0] = "Payroll/xls/singleWeekly.csv";
+		file[0][1] = "Payroll/tax/weeklySingleWageBracket.dat";
 		
-		file[1][0] = "f:\\Programming\\Payroll\\singleBiWeekly.csv";
-		file[1][1] = "f:\\Programming\\Payroll\\data\\biWeeklySingleWageBracket.dat";
+		file[1][0] = "Payroll/xls/singleBiWeekly.csv";
+		file[1][1] = "Payroll/tax/biWeeklySingleWageBracket.dat";
 		
-		file[2][0] = "f:\\Programming\\Payroll\\singleSemiMonthly.csv";
-		file[2][1] = "f:\\Programming\\Payroll\\data\\semiMonthlySingleWageBracket.dat";
+		file[2][0] = "Payroll/xls/singleSemiMonthly.csv";
+		file[2][1] = "Payroll/tax/semiMonthlySingleWageBracket.dat";
 		
-		file[3][0] = "f:\\Programming\\Payroll\\singleMonthly.csv";
-		file[3][1] = "f:\\Programming\\Payroll\\data\\monthlySingleWageBracket.dat";
+		file[3][0] = "Payroll/xls/singleMonthly.csv";
+		file[3][1] = "Payroll/tax/monthlySingleWageBracket.dat";
 		
-		file[4][0] = "f:\\Programming\\Payroll\\singleDaily.csv";
-		file[4][1] = "f:\\Programming\\Payroll\\data\\dailySingleWageBracket.dat";
+		file[4][0] = "Payroll/xls/singleDaily.csv";
+		file[4][1] = "Payroll/tax/dailySingleWageBracket.dat";
 		
-		file[5][0] = "f:\\Programming\\Payroll\\marriedWeekly.csv";
-		file[5][1] = "f:\\Programming\\Payroll\\data\\weeklyMarriedWageBracket.dat";
+		file[4][0] = "Payroll/xls/marriedWeekly.csv";
+		file[4][1] = "Payroll/tax/weeklyMarriedWageBracket.dat";
 		
-		file[6][0] = "f:\\Programming\\Payroll\\marriedBiWeekly.csv";
-		file[6][1] = "f:\\Programming\\Payroll\\data\\biWeeklyMarriedWageBracket.dat";
+		file[5][0] = "Payroll/xls/marriedBiWeekly.csv";
+		file[5][1] = "Payroll/tax/biWeeklyMarriedWageBracket.dat";
 		
-		file[7][0] = "f:\\Programming\\Payroll\\marriedSemiMonthly.csv";
-		file[7][1] = "f:\\Programming\\Payroll\\data\\semiMonthlyMarriedWageBracket.dat";
+		file[6][0] = "Payroll/xls/marriedSemiMonthly.csv";
+		file[6][1] = "Payroll/tax/semiMonthlyMarriedWageBracket.dat";
 		
-		file[8][0] = "f:\\Programming\\Payroll\\marriedMonthly.csv";
-		file[8][1] = "f:\\Programming\\Payroll\\data\\monthlyMarriedWageBracket.dat";
+		file[7][0] = "Payroll/xls/marriedMonthly.csv";
+		file[7][1] = "Payroll/tax/monthlyMarriedWageBracket.dat";
 		
-		file[9][0] = "f:\\Programming\\Payroll\\marriedDaily.csv";
-		file[9][1] = "f:\\Programming\\Payroll\\data\\dailyMarriedWageBracket.dat";
+		file[8][0] = "Payroll/xls/marriedDaily.csv";
+		file[8][1] = "Payroll/tax/dailyMarriedWageBracket.dat";
+		
 		int row = 0, col = 0;
 		for (int x = 0; x < file.length; x++) {
 		//int x = 5;
@@ -64,29 +73,33 @@ public class PayrollMenu {
 		}
 	}
 
-	/** create percentage files from the WithholdingTables_2015.csv file
+	/** create percentage files from the WithholdingTables_(year of tax files to convert).csv file
 	 * in order to properly parse this and convert the appropriate files
 	 * all heading and unused areas must be deleted from the file
-	 * so it is a bare comma delimited file
+	 * so it is a bare comma delimited file<br><br>
 	 * 
 	 * also there needs to be a heading value between each section
-	 * <p>example:
+	 * <p>example:<br><br>
 	 * 
-	 * <p>Weekly
+	 * Weekly<br>
 	 * 
-	 * <p>,,$44 ,$222 ,,$0.00 ,plus,10%,,$44 ,,,$165 ,$520 ,,$0.00 ,plus,10%,,$165 ,,
-	 * <p> ...
-	 * <p>...
-	 * <p>...
-	 * <p>Biweekly
-	 * <p>,,$88 ,$443 ,,$0.00 ,plus,10%,,$88 ,,,$331 ,"$1,040 ",,$0.00 ,plus,10%,,$331 ,,
-	 * <p>...
-	 * <p>...
-	 * <p> etc.
+	 * ,,$44 ,$222 ,,$0.00 ,plus,10%,,$44 ,,,$165 ,$520 ,,$0.00 ,plus,10%,,$165 ,,<br>
+	 *  ...<br>
+	 * ...<br>
+	 * ...<br><br>
+	 * Biweekly<br>
+	 * ,,$88 ,$443 ,,$0.00 ,plus,10%,,$88 ,,,$331 ,"$1,040 ",,$0.00 ,plus,10%,,$331 ,,<br>
+	 * ...<br>
+	 * ...<br>
+	 * ...<br><br>
+	 *  etc.<br>
+	 *  
+	 *  @author Theral Jessop<br>
+	 *  Copyright (c) 2015 Theral Jessop All Rights Reserved<br>
 	 */
-	public void convertDelimited() throws FileNotFoundException {
+	public void fromPercentageCSVtoDat() throws FileNotFoundException {
 		PayrollLib gt = new PayrollLib();
-		String filename = gt.getString("Enter the path and filename of the comma delimited file to convert\n\n(example: f:\\Programming\\Payroll\\WithholdingTables_2015)\n\nDo not include the extenstion because it will be added automaticly\nHowever, the file must be saved using a comma delimited format \nand have the csv extension!") + ".csv"; // "f:\\Programming\\Payroll\\WithholdingTables_2015.csv";
+		String filename = gt.getString("Enter the path and filename of the comma delimited file to convert\n\n(example: Payroll/xls/WithholdingTables_2015)\n\nDo not include the extenstion because it will be added automaticly\nHowever, the file must be saved using a comma delimited format \nand have the csv extension!") + ".csv"; // "Payroll/xls/WithholdingTables_2015.csv";
 		gt.newloadPercent(filename);
 
 	}

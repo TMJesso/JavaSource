@@ -69,7 +69,9 @@ public class PayrollLib {
 	}
 	
 	/** get a string using a JOptionPane dialog box 
-	 * @param message: display a message to the user while asking for input
+	 * 
+	 * @param message display a message to the user while asking for input
+	 * 
 	 * */
 	public String getString(String message) {
 		String input = "";
@@ -91,7 +93,12 @@ public class PayrollLib {
 	/** display a message 
 	 * 0 - using the JOptionPane dialog box
 	 * 1 - using the System.out method
-	 * 2 - using both JOptionPane and System.out */
+	 * 2 - using both JOptionPane and System.out
+	 * 
+	 * @param message String that will be displayed to user
+	 * @param num integer number between 0 and 2 inclusive for the above list
+	 * 
+	*/
 	public void sayOutput(String message, int num) {
 		switch (num) {
 		case 0: JOptionPane.showMessageDialog(null, message);break;
@@ -232,7 +239,12 @@ public class PayrollLib {
 	}
 	
 	
-	/** write wage bracket data to file */
+	/** write wage bracket data to file
+	 * 
+	 * @param a integer two-dimensional array
+	 * @param filename String to hold the location of the files
+	 * 
+	 */
 	public void writeWageBracket(int[][] a, String filename) {
 		/** write percentage data do file */
 		try {
@@ -260,8 +272,10 @@ public class PayrollLib {
 	/** process the allTaxCode into the single or married wage bracket files
 	 * <p>
 	 * pass the array in the following order:<p>
-	 * @param: allTaxCode = a
-	 * @param: singleRate or marriedRate array = b */
+	 * @param a integer two-dimensional array that holds allTaxCode
+	 * @param b integer two-dimensional array that holds singleRate or marriedRate 
+	 * 
+	*/
 	public int[][] processWageBracket(int[][] a, int[][] b) {
 		
 		for (int x = 0; x < b.length;x++) {
@@ -277,7 +291,12 @@ public class PayrollLib {
 	}
 
 	
-	/** write percentage data to file */
+	/** write percentage data to file
+	 * 
+	 * @param a integer two-dimensional array 
+	 * @param filename String holds the location of the file to be written to
+	 * 
+	 */
 	public void writePercent(double[][] a, String filename) {
 		
 		try {
@@ -301,7 +320,14 @@ public class PayrollLib {
 		}
 	}
 	
-	/** get data for wage bracket table */
+	/** get data for wage bracket table
+	 * 
+	 * @param filename String holds the location of the file to be read
+	 * @param a integer two-dimensional array
+	 * @return a
+	 * @throws FileNotFoundException
+	 * 
+	 */
 	public int[][] loadWageBracket(String filename, int[][] a) throws FileNotFoundException {
 		boolean debug = false;
 		Scanner input = new Scanner(new File(filename));
@@ -389,7 +415,7 @@ public class PayrollLib {
 	
 	
 	/** how many rows do I need for the array from the file for the initialization of the array 
-	 * @param filename: filename to be scanned
+	 * @param filename to be scanned
 	 * */
 	public int getNumberofRows(String filename) throws FileNotFoundException {
 		int rows = 0;
@@ -405,9 +431,14 @@ public class PayrollLib {
 	}
 	
 	
-	/** how many columns are in the file for the initialization of the array */
+	/** how many columns are in the file for the initialization of the array 
+	 * 
+	 * @param filename holds the location of the file to be read
+	 * @return (column) integer representing the number of columns in the array
+	 * @throws FileNotFoundException
+	 */
 	public int getNumberofColumns(String filename) throws FileNotFoundException {
-		int col = 0;
+		int column = 0;
 		String getLine = "";
 		Scanner input = new Scanner(new File(filename));
 		// get one line
@@ -416,18 +447,22 @@ public class PayrollLib {
 		// which indicate a new column
 		for (int x = 0; x < getLine.length(); x++) {
 			if (getLine.charAt(x) == 44) {
-				col++;
+				column++;
 			}
 		}
 		input.close();
 		// for the array it needs to be one number higher then the actual number of columns
-		col++;
-		return col;
+		column++;
+		return column;
 	}
 	
 	
-	/** file io to read from a CSV file 
-	 * @throws FileNotFoundException */
+	/** file io to read from a CSV file
+	 * 
+	 * @param filename holds the location of the file to be read
+	 * @throws FileNotFoundException
+	 * 
+	 */
 	public void newloadPercent(String filename) throws FileNotFoundException {
 		// declare arrays to be used to create the necessary files
 		double[][] a = new double[7][22];
@@ -451,14 +486,14 @@ public class PayrollLib {
 			// what heading am I on and set the appropriate file names
 			// reset the row and col values to 0 then loop again
 			switch (getLine) {
-				case "Weekly": row = 0; col = 0; newSingleFile = "f:\\Programming\\Payroll\\weeklySinglePercent.dat";newMarriedFile = "f:\\Programming\\Payroll\\weeklyMarriedPercent.dat";continue;
-				case "Biweekly": row = 0; col = 0; newSingleFile = "f:\\Programming\\Payroll\\biweeklySinglePercent.dat";newMarriedFile = "f:\\Programming\\Payroll\\biweeklyMarriedPercent.dat";continue;
-				case "Semimonthly": row = 0; col = 0; newSingleFile = "f:\\Programming\\Payroll\\semimonthlySinglePercent.dat";newMarriedFile = "f:\\Programming\\Payroll\\semimonthlyMarriedPercent.dat";continue;
-				case "Monthly": row = 0; col = 0; newSingleFile = "f:\\Programming\\Payroll\\monthlySinglePercent.dat";newMarriedFile = "f:\\Programming\\Payroll\\monthlyMarriedPercent.dat";continue;
-				case "Quarterly": row = 0; col = 0; newSingleFile = "f:\\Programming\\Payroll\\quarterlySinglePercent.dat";newMarriedFile = "f:\\Programming\\Payroll\\quarterlyMarriedPercent.dat";continue;
-				case "Semiannual": row = 0; col = 0; newSingleFile = "f:\\Programming\\Payroll\\semiannualSinglePercent.dat";newMarriedFile = "f:\\Programming\\Payroll\\semiannualMarriedPercent.dat";continue;
-				case "Annual": row = 0; col = 0; newSingleFile = "f:\\Programming\\Payroll\\annualSinglePercent.dat";newMarriedFile = "f:\\Programming\\Payroll\\annualMarriedPercent.dat";continue;
-				case "Daily": row = 0; col = 0; newSingleFile = "f:\\Programming\\Payroll\\dailySinglePercent.dat";newMarriedFile = "f:\\Programming\\Payroll\\dailyMarriedPercent.dat";continue;
+				case "Weekly": row = 0; col = 0; newSingleFile = "Payroll/tax/weeklySinglePercent.dat";newMarriedFile = "Payroll/tax/weeklyMarriedPercent.dat";continue;
+				case "Biweekly": row = 0; col = 0; newSingleFile = "Payroll/tax/biweeklySinglePercent.dat";newMarriedFile = "Payroll/tax/biweeklyMarriedPercent.dat";continue;
+				case "Semimonthly": row = 0; col = 0; newSingleFile = "Payroll/tax/semimonthlySinglePercent.dat";newMarriedFile = "Payroll/tax/semimonthlyMarriedPercent.dat";continue;
+				case "Monthly": row = 0; col = 0; newSingleFile = "Payroll/tax/monthlySinglePercent.dat";newMarriedFile = "Payroll/tax/monthlyMarriedPercent.dat";continue;
+				case "Quarterly": row = 0; col = 0; newSingleFile = "Payroll/tax/quarterlySinglePercent.dat";newMarriedFile = "Payroll/tax/quarterlyMarriedPercent.dat";continue;
+				case "Semiannual": row = 0; col = 0; newSingleFile = "Payroll/tax/semiannualSinglePercent.dat";newMarriedFile = "Payroll/tax/semiannualMarriedPercent.dat";continue;
+				case "Annual": row = 0; col = 0; newSingleFile = "Payroll/tax/annualSinglePercent.dat";newMarriedFile = "Payroll/tax/annualMarriedPercent.dat";continue;
+				case "Daily": row = 0; col = 0; newSingleFile = "Payroll/tax/dailySinglePercent.dat";newMarriedFile = "Payroll/tax/dailyMarriedPercent.dat";continue;
 			}
 			
 			if (debug) {

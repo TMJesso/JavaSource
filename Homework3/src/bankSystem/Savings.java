@@ -1,14 +1,14 @@
 /* 
  * IUK
  * Professor: Dr. Awny Alnusair
- * Group: Theral Jessop, Jeremiah McKinney, Ian Holtson
+ * Group: Theral Jessop, Jeremiah McKinney
  * Course: INFO 211
  * Date: March 12, 2015
  * Homework 3:
  * 
  */
 package bankSystem;
-
+// savings account extends general account adding interest rate
 public class Savings extends Account {
 	protected double interestRate;
 	
@@ -27,8 +27,28 @@ public class Savings extends Account {
 		super(account, balance, branch, customer);
 		this.interestRate = rate;
 	}
+	
+	// get
+	/** get current interest rate
+	 * 
+	 * @return interestRate
+	 */
+	public double getInterestRate() {
+		return this.interestRate;
+	}
+	
+	// set
+	/** set interest rate
+	 * 
+	 * @param interestRate
+	 */
+	public void setInterestRate(double interestRate) {
+		this.interestRate = interestRate;
+	}
 
-	/** make deposit
+	
+
+	/** make deposit returning the depositing account and new balance to user
 	 * 
 	 * @param amount
 	 * return message
@@ -44,7 +64,11 @@ public class Savings extends Account {
 		return message;
 	}
 
-	/** make withdrawal
+	/** make withdrawal - check to make sure there is available funds for the transaction
+	 * and display an appropriate error message if there is not.
+	 * <p>
+	 * <p> if funds are available for transaction then processes transaction and display
+	 * the new balance to the user
 	 * 
 	 * @param amount
 	 * return message
@@ -71,7 +95,7 @@ public class Savings extends Account {
 	}
 	
 	/** calculate compound interest for one month
-	 * from the annual rate 
+	 * from the annual rate and then display the new balance to the user
 	 * 
 	 * @return
 	 */
@@ -96,23 +120,7 @@ public class Savings extends Account {
 		return message;
 	}
 	
-	/** get current interest rate
-	 * 
-	 * @return interestRate
-	 */
-	public double getInterestRate() {
-		return this.interestRate;
-	}
-	
-	/** set interest rate
-	 * 
-	 * @param interestRate
-	 */
-	public void setInterestRate(double interestRate) {
-		this.interestRate = interestRate;
-	}
-
-	/** display the savings account information
+	/** display the savings account information in a string to return to the user
 	 * 
 	 * @return message
 	 */

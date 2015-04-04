@@ -48,8 +48,8 @@ public class WwdUtils {
 
 /***      Check for  WISH_LIST table    ****/
    public static boolean wwdChk4Table (Connection conTst ) throws SQLException {
-      boolean chk = true;
-      boolean doCreate = false;
+      //boolean chk = true;
+     //boolean doCreate = false;
       try {
          Statement s = conTst.createStatement();
          s.execute("update WISH_LIST set ENTRY_DATE = CURRENT_TIMESTAMP, WISH_ITEM = 'TEST ENTRY' where 1=3");

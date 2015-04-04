@@ -3,11 +3,11 @@ package myMediaLab;
 import java.util.ArrayList;
 
 public final class PlayList extends PlayableItem {
-	ArrayList<Media> myPlayList;
+	ArrayList<Song> myPlayList;
 
 	public PlayList(String title) {
 		super(title);
-		myPlayList = new ArrayList<Media>();
+		myPlayList = new ArrayList<Song>();
 	}
 
 	public void play() {
