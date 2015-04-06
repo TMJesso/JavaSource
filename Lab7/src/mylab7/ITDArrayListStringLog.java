@@ -17,7 +17,8 @@ import java.util.*;
  */
 public class ITDArrayListStringLog
 {
-  public static void main(String[] args)
+  @SuppressWarnings({ "resource", "unused" })
+public static void main(String[] args)
   {
     LinkedStringLog test = new LinkedStringLog("Testing");
     Scanner conIn = new Scanner(System.in);

@@ -110,7 +110,7 @@ public class Savings extends Account {
 			double years = 1;
 			double numTimes = 1/12.0;
 			double interest = this.balance * Math.pow(1 + (rate / numTimes), (numTimes * years));
-			this.balance = ((Math.floor(interest*100))/100);
+			this.balance += ((Math.floor(interest*100))/100);
 			message = "=========================================================\n";
 			message += "Account #: " + this.accountNumber;
 			message += "\nInterest calculated and applied!\nNew balance is: $" + this.balance;

@@ -4,14 +4,22 @@
 // CommissionEmployee inherits from Employee and has
 // access to Employee's protected members.
 package original;
-public class CommissionEmployee extends Employee
-{
+
+
+ public class CommissionEmployee extends Employee {
 
    protected double grossSales; // gross weekly sales
    protected double commissionRate; // commission percentage
 
    // five-argument constructor
-   public CommissionEmployee( String first, String last, String ssn, double sales, double rate )
+   /** 
+ * @param first
+ * @param last
+ * @param ssn
+ * @param sales
+ * @param rate
+ */
+public CommissionEmployee( String first, String last, String ssn, double sales, double rate )
    {
 	  super( first, last, ssn);
       setGrossSales( sales ); // validate and store gross sales

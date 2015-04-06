@@ -2,7 +2,6 @@
 
 // BasePlusCommissionEmployee inherits from CommissionEmployee and has
 // access to CommissionEmployee's protected members.
-
 package original;
 public class BasePlusCommissionEmployee extends CommissionEmployee
 {

@@ -1,6 +1,5 @@
 // Employee.java
 // Employee superclass
-
 package original;
 public class Employee
 {
