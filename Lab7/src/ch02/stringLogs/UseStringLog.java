@@ -4,7 +4,6 @@ package ch02.stringLogs;
 //
 // Simple example of the use of a StringLog.
 //----------------------------------------------------------------------------
-import ch02.stringLogs.*;
 
 public class UseStringLog
 {

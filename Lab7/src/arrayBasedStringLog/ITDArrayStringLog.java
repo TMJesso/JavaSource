@@ -12,10 +12,12 @@ public class ITDArrayStringLog
   public static void main(String[] args)
   {
     ArrayStringLog test = new ArrayStringLog("Testing");
-    ArrayList<ArrayStringLog> test1 = new ArrayList<ArrayStringLog>();
-    Scanner conIn = new Scanner(System.in);
+   // ArrayList<ArrayStringLog> test1 = new ArrayList<ArrayStringLog>();
+    @SuppressWarnings("resource")
+	Scanner conIn = new Scanner(System.in);
 
-    String skip;       // skip end of line after reading an integer
+    @SuppressWarnings("unused")
+	String skip;       // skip end of line after reading an integer
     boolean keepGoing; // flag for "choose operation" loop
     int constructor;   // indicates user's choice of constructor
     int operation;     // indicates user's choice of operation

@@ -6,16 +6,18 @@ package ch02.stringLogs;
 //----------------------------------------------------------------------------
 
 import java.util.*;
-import ch02.stringLogs.*;
+
 
 public class ITDArrayStringLog
 {
   public static void main(String[] args)
   {
     ArrayStringLog test = new ArrayStringLog("Testing");
-    Scanner conIn = new Scanner(System.in);
+    @SuppressWarnings("resource")
+	Scanner conIn = new Scanner(System.in);
 
-    String skip;       // skip end of line after reading an integer
+    @SuppressWarnings("unused")
+	String skip;       // skip end of line after reading an integer
     boolean keepGoing; // flag for "choose operation" loop
     int constructor;   // indicates user's choice of constructor
     int operation;     // indicates user's choice of operation
