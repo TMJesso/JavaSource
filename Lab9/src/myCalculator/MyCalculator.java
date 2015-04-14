@@ -19,6 +19,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
+@SuppressWarnings("unused")
 public class MyCalculator extends Application {
 	  private Calculate calculate = new Calculate();
 	  private Face faceState = new Face();
@@ -39,9 +40,33 @@ public class MyCalculator extends Application {
 		
 	}
 	
+	public float getInputValue() {
+		return this.inputValue;
+	}
+	
+	public float getDisplayValue() {
+		return Float.parseFloat(this.displayValue.getText());
+	}
+	
+	public void setInputValue(float inputValue) {
+		this.inputValue = inputValue;
+	}
+	
+	public void setDisplayValue(String displayValue) {
+		this.displayValue.setText(displayValue);
+	}
+	
+	public void setFace(boolean face) {
+		if (face) {
+			this.face.setText(":-)");
+		} else {
+			this.face.setText(":-(");
+		}
+	}
+	
 	protected BorderPane getPane() {
 		
-		Font arial = Font.font("Arial", FontWeight.BOLD, 20);
+		Font arial = Font.font("Times New Romans", FontWeight.BOLD, 20);
 		
 		Button one = new Button("1");
 		one.setFont(arial);
@@ -65,13 +90,13 @@ public class MyCalculator extends Application {
 		zero.setFont(arial);
 		Button clear = new Button("C");
 		clear.setFont(arial);
-		Button divide = new Button("/");
+		Button divide = new Button(" /");
 		divide.setFont(arial);
 		Button add = new Button("+");
 		add.setFont(arial);
-		Button minus = new Button("-");
+		Button minus = new Button(" -");
 		minus.setFont(arial);
-		Button multiply = new Button("*");
+		Button multiply = new Button(" *");
 		multiply.setFont(arial);
 		
 		
@@ -110,6 +135,20 @@ public class MyCalculator extends Application {
 		  mainPane.setCenter(centerPane);
 		  mainPane.setStyle("-fx-border-color: red");
 
+		  one.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override public void handle(ActionEvent e) {
+		    	setInputValue(1);
+			    }
+		});
+		  
+		multiply.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+			calculate.multiply(getInputValue());
+			setDisplayValue(calculate.getDisplayValue()+"");
+			}
+		});
 		return mainPane;
 	}
+	
+	
 }
