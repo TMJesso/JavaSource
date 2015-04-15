@@ -41,7 +41,7 @@ public class ComboBoxDemo extends Application {
 	private String[] flagDescription = new String[9];
 	
 	// declare and create a description pane
-	private DescriptionPane descriptionPane = new DescriptionPane();
+	//private DescriptionPane descriptionPane = new DescriptionPane();
 	
 	// create a combo box for selecting countries
 	private ComboBox<String> cbo = new ComboBox<>(); // flagTitles;
@@ -75,7 +75,7 @@ public class ComboBoxDemo extends Application {
 		
 		ObservableList<String> items = FXCollections.observableArrayList(flagTitles);
 		cbo.getItems().addAll(items);
-		pane.setCenter(descriptionPane);
+		//pane.setCenter(descriptionPane);
 		
 		// display the selected country
 		cbo.setOnAction(e -> setDisplay(items.indexOf(cbo.getValue())));
@@ -91,8 +91,8 @@ public class ComboBoxDemo extends Application {
 	 * 
 	 */
 	public void setDisplay(int index) {
-		descriptionPane.setTitle(flagTitles[index]);
-		descriptionPane.setImageView(flagImage[index]);
-		descriptionPane.setDescription(flagDescription[index]);
+//		descriptionPane.setTitle(flagTitles[index]);
+//		descriptionPane.setImageView(flagImage[index]);
+//		descriptionPane.setDescription(flagDescription[index]);
 	}
 }

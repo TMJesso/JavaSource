@@ -26,7 +26,7 @@ public class MyCalculator extends Application {
 	  private TextField displayValue = new TextField();
 	  private TextField face = new TextField();
 	  private float inputValue;
-
+	  
 	public static void main(String[] args) {
 	    launch(args);
 	}
@@ -49,15 +49,21 @@ public class MyCalculator extends Application {
 	}
 	
 	public void setInputValue(float inputValue) {
-		this.inputValue = inputValue;
+		this.inputValue += inputValue;
 	}
 	
 	public void setDisplayValue(String displayValue) {
+		if(Float.parseFloat(displayValue)>=0.0f) {
+			faceState.makeItHappy();
+		} else {
+			faceState.makeItSad();
+		}
 		this.displayValue.setText(displayValue);
+		setFace();
 	}
 	
-	public void setFace(boolean face) {
-		if (face) {
+	public void setFace() {
+		if (faceState.isFaceState()) {
 			this.face.setText(":-)");
 		} else {
 			this.face.setText(":-(");
@@ -65,6 +71,7 @@ public class MyCalculator extends Application {
 	}
 	
 	protected BorderPane getPane() {
+		setDisplayValue("0.0");
 		
 		Font arial = Font.font("Times New Romans", FontWeight.BOLD, 20);
 		
@@ -134,12 +141,57 @@ public class MyCalculator extends Application {
 		  mainPane.setTop(topPane);
 		  mainPane.setCenter(centerPane);
 		  mainPane.setStyle("-fx-border-color: red");
-
+		  
 		  one.setOnAction(new EventHandler<ActionEvent>() {
-		    @Override public void handle(ActionEvent e) {
+		    public void handle(ActionEvent e) {
 		    	setInputValue(1);
 			    }
 		});
+		  two.setOnAction(new EventHandler<ActionEvent>() {
+			    public void handle(ActionEvent e) {
+			    	setInputValue(2);
+				    }
+			});
+		  three.setOnAction(new EventHandler<ActionEvent>() {
+			    public void handle(ActionEvent e) {
+			    	setInputValue(3);
+				    }
+			});
+		  four.setOnAction(new EventHandler<ActionEvent>() {
+			    public void handle(ActionEvent e) {
+			    	setInputValue(4);
+				    }
+			});
+		  five.setOnAction(new EventHandler<ActionEvent>() {
+			    public void handle(ActionEvent e) {
+			    	setInputValue(5);
+				    }
+			});
+		  six.setOnAction(new EventHandler<ActionEvent>() {
+			    public void handle(ActionEvent e) {
+			    	setInputValue(6);
+				    }
+			});
+		  seven.setOnAction(new EventHandler<ActionEvent>() {
+			    public void handle(ActionEvent e) {
+			    	setInputValue(7);
+				    }
+			});
+		  eight.setOnAction(new EventHandler<ActionEvent>() {
+			    public void handle(ActionEvent e) {
+			    	setInputValue(8);
+				    }
+			});
+		  nine.setOnAction(new EventHandler<ActionEvent>() {
+			    public void handle(ActionEvent e) {
+			    	setInputValue(9);
+				    }
+			});
+		  zero.setOnAction(new EventHandler<ActionEvent>() {
+			    public void handle(ActionEvent e) {
+			    	setInputValue(0);
+				    }
+			});
 		  
 		multiply.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
@@ -147,6 +199,32 @@ public class MyCalculator extends Application {
 			setDisplayValue(calculate.getDisplayValue()+"");
 			}
 		});
+		
+		add.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				calculate.add(getInputValue());
+				setDisplayValue(calculate.getDisplayValue()+"");
+			}
+		});
+		minus.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				calculate.subtract(getInputValue());
+				setDisplayValue(calculate.getDisplayValue()+"");
+			}
+		});
+		clear.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+		    	setInputValue(0);
+				calculate.add(getInputValue());
+				setDisplayValue(calculate.getDisplayValue()+"");
+			}
+		});
+		
+		
+		
+		
+		
+		
 		return mainPane;
 	}
 	
