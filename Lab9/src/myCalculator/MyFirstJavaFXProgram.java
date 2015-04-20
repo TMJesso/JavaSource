@@ -114,6 +114,7 @@ public class MyFirstJavaFXProgram extends Application {
 	  btnClear.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 			  	taOutput.clear();
+			  	txtName.requestFocus();
 		    }
 		});
 	  
